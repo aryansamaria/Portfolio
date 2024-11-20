@@ -1,0 +1,511 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+    color: white;
+    scroll-behavior: smooth;
+}
+html, body{
+    height: 100%;
+    /* perspective: 800px; */
+    width: 100%;
+}
+#cursor{
+    height: 25px;
+    width: 25px;
+    background-color: rgb(137, 212, 100);
+    border-radius: 50%;
+    position: fixed;
+    z-index: 99;
+}
+#cursor-blur{
+    height: 200px;
+    width: 200px;
+    background-color: rgb(175, 221, 151);
+    border-radius: 50%;
+    position: fixed;
+    filter: blur(60px);
+    z-index: -1;
+}
+#nav{
+    height: 145px;
+    width: 100%;
+    /* background-color: red; */
+    display: flex; 
+    align-items: center;
+    padding: 0 150px;
+    position: fixed;
+    gap: 40px;
+    justify-content: flex-start;
+    z-index: 99;
+}
+#nav img{
+    height: 75px;
+}
+#nav h3{
+    font-weight: 500;
+}
+video{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    object-fit: cover;
+    z-index: -1;
+}
+#main{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.231);
+}
+#page1{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    z-index: 10;
+}
+#page1 h1{
+    font-size: 140px;
+    font-weight: 1300;
+}
+#page1 h1::before{
+    content: "I Write High-Level Language";
+    position: absolute;
+    color: black;
+    top: 363px;
+    left: 69px;
+    -webkit-text-stroke: 2px rgb(188, 225, 170) ;
+    z-index: -1;
+}
+#page1 h2{
+    font-size: 40px;
+    font-weight: 900;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+#page1 p{
+    font-size: 30px;
+    font-weight: 250;
+    width: 40%;
+}
+#page2{
+    min-height: 100vh;
+    width: 100%;
+    z-index: 10;
+}
+#scroller{
+    /* background-color: red; */
+    white-space: nowrap;
+    /* overflow-x: auto;
+    overflow-y: hidden; */
+    position: relative;
+    z-index: 10;
+}
+#scroller-in{
+    display: inline-block;
+    white-space: nowrap;
+    animation-name: scroll;
+    animation-duration: 25s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#scroller a{
+    display: inline-block;
+    text-decoration: none;
+    font-size: 140px;
+    font-weight: 1600;
+    font-family:'Times New Roman', Times, serif;
+    margin-right: 40px;
+    color: black;
+    transition: all linear 0.5s;
+    -webkit-text-stroke: 1px white;
+}
+#scroller a:hover{
+    color: rgb(88, 193, 35);
+}
+@keyframes scroll{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+#about-us{
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    padding: 0 80px;
+    justify-content:space-around;
+    position: relative;
+    z-index: 10;
+    align-items: center;
+    margin-bottom: 70px;
+    
+}
+#gap{
+    height: 80px;
+}
+#about-us img{
+    height: 350px;
+    width: 300px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+#about-us-in{
+    width: 50%;
+    text-align: center;
+} 
+#about-us-in h3{
+    font-size: 60px;
+    font-weight: 600;
+    /* font-family: 'Times New Roman', Times, serif; */
+    margin-bottom: 10px;
+}
+#about-us-in p{
+    font-size: 20px;
+    text-align:center;
+    font-weight: 200;
+    margin-top: 50px;
+}
+.cards-container{
+    /* background-color: aquamarine; */
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    position: relative;
+    z-index: 10;
+}
+.card{
+    height: 80%;
+    width: 20%;
+    /* background-color: antiquewhite; */
+    border-radius: 30px;
+    background-size: cover;
+    overflow: hidden;
+    background-position: center;
+    transition: all ease 0.6s;
+}
+#card1{
+    background-image: url(res/c1.jpg);
+}
+#card2{
+    background-image: url(res/c2.jpg);
+}
+#card3{
+    background-image: url(res/c3.jpg);
+}
+.overlay{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(151, 244, 104);
+    padding: 40px;
+    padding-top: 160px;
+    opacity: 0;
+    transition: all ease 0.6s;
+}
+.overlay h3{
+    color: black;
+    font-size: 45px;
+    text-transform: uppercase;
+    /* white-space: nowrap; */
+    margin-bottom: 20px;
+    font-weight: 1000;
+}
+.overlay p{
+    color: black;
+    font-size: 20px;
+}
+.card:hover .overlay{
+    opacity: 1;
+}
+.card:hover{
+    transform: rotate3d(-1,1,0,10deg);
+}
+#skilltag{
+    background: linear-gradient(to left,rgb(151, 244, 104), black, rgb(151, 244, 104));
+    margin-bottom: 0px;
+    padding: 50px;
+    text-align: center;
+    font-size: 70px;
+    font-weight: 900px;
+    transition: all 2s linear 0s;
+}
+#skilltag:hover{
+    background-color: rgb(151, 244, 104);
+    color: black;
+}
+#page3{
+    min-height: 100vh;
+    width: 100%;
+    z-index: 10;
+    background-color: black;
+    
+}
+#green-div{
+    height: 55vh;
+    /* margin-top: 5px; */
+    /* display: flex; */
+    align-items: center;
+    /* justify-content: space-between; */
+    background: rgb(0, 0, 0);
+}
+/* #skillcon{
+    margin: 5px;
+} */
+#page3{
+    background-color: black;
+    padding-top: 50px;
+    width: 100%;
+    display: flex;
+}
+#skiltag{
+    margin-top: 30px;
+    height: 160px;
+    width: 100%;
+    background-color: rgb(151, 244, 104);
+    color: black;
+    font-size: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    font-weight: 600;  
+}
+#container{
+    margin-left: 680px;
+    margin-top: 70px;
+}
+.skills-container {
+    width: 783px;
+    margin: 20px;
+    height: 120px;
+    position: relative;
+    background-color: rgb(151, 244, 104); 
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    z-index: 20;
+}
+
+.over, .back-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+    transition: transform 0.8s ease;
+}
+
+.over {
+    background-color: rgb(106, 193, 62); 
+    z-index: 2;
+}
+
+.skills-container:hover .over {
+    transform: translateX(-90%);
+    
+}
+
+.back-layer {
+    z-index: 1;
+    background-color: black; 
+}
+.thought{
+    width: 520px;
+    margin-top: 190px;
+    font-size: 70px;
+    display: inline-block;
+    transition: color 3s linear;
+}
+.thought span:nth-child(1):hover{
+    color: brown;
+}
+.thought span:nth-child(2):hover{
+    color: rgb(194, 185, 20);
+}
+.thought span:nth-child(3):hover{
+    color: rgb(158, 120, 120);
+}
+.thought span:nth-child(4):hover{
+    color: rgb(20, 109, 203);
+}
+.thought span:nth-child(5):hover{
+    color: rgb(204, 221, 12);
+}
+.thought span:nth-child(6):hover{
+    color: rgb(27, 227, 154);
+}
+.thought span:nth-child(7):hover{
+    color: rgb(203, 244, 56);
+}
+.thought span:nth-child(8):hover{
+    color: rgb(44, 202, 245);
+}
+.thought span:nth-child(9):hover{
+    color: rgb(60, 209, 37);
+}
+.thought span:nth-child(10):hover{
+    color: rgb(30, 158, 226);
+}
+.thought span:nth-child(11):hover{
+    color: rgb(225, 223, 91);
+}
+.thought span:nth-child(12):hover{
+    color: rgb(220, 40, 172);
+}
+.thought span:nth-child(13):hover{
+    color: rgb(133, 78, 235);
+}
+.thought span:nth-child(14):hover{
+    color: brown;
+}
+
+
+#page4
+{
+    min-height: 100vh;
+    width: 100%;
+    z-index: 10;
+    background-color: black;
+}
+#container-project
+{
+    margin-top: 150px;
+    /* margin-left: 50px; */
+}
+.propic-container
+{
+    width: 90%;
+    margin: 70px;
+    height: 420px;
+    position: relative; 
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    z-index: 20;   
+}
+.pic-cont{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 29%;
+    width: 44%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    
+    font-size: 2.5rem;
+    color: white;
+    transition: transform 0.8s ease;
+    z-index: 1;
+    box-shadow:0 0 20px rgb(36, 239, 56);
+}
+.pic,.pic2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 30%;
+    width: 44%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+    transition: transform 0.8s ease;
+    background-color: rgb(179, 114, 44); 
+    z-index: 2;
+}
+.pic{
+    background-image: url(./res/pr1.png);
+    background-size: contain;
+}
+.pic2{
+    background-image: url(./res/v5.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.propic-container:hover .pic {
+    transform: translateX(60%);
+    
+}
+.propic-container:hover .pic2 {
+    transform: translateX(60%);
+    
+}
+
+.propic-container:hover .pic-cont {
+    transform: translateX(-66%);
+    
+}
+#protag{
+    margin-top: 60px;
+    height: 160px;
+    width: 100%;
+    background-color: rgb(151, 244, 104);
+    color: black;
+    font-size: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    font-weight: 600;
+}
+#edutag{
+    margin-top: 60px;
+    height: 160px;
+    width: 100%;
+    background-color: rgb(151, 244, 104);
+    color: black;
+    font-size: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    font-weight: 600;
+    
+}
+#page5{
+    min-height: 130vh;
+    width: 100%;
+    z-index: 10;
+    background-color: black;
+    padding-top: 100px;
+    
+}
+.edu-cont{
+    margin: 150px;
+}
+.level{
+    font-size: 80px;
+    box-shadow: 0 0 3px white;
+    text-shadow: 0 0 15px rgb(4, 4, 4);
+    /* color: black; */
+    
+}
+.insti_name{
+    margin-top: 10px;
+    font-size: 40px;
+}
+.branch{
+    margin-top: 10px;
+    font-size: 20px;
+}
+footer{
+    background-color: rgb(39, 36, 36);
+    height: 100px;
+}
